@@ -10,23 +10,28 @@ def autorization_user():
     user_login = get_user_login()
     user_password = get_user_password()
     arr_users = module_csv.read_csv_user()
+    search = False
     for user in arr_users:
         if (user['login'] == user_login and user['password'] == user_password):
             print("Пользователь найден -->")
             if (user['rang'] == "user"):
                 time.sleep(1)
                 user_acc.select_user(user_login, user_password)
+                search = True
                 break
                 # Файл пользователя
             elif (user['rang'] == "admin"):
                 time.sleep(1)
-
+                admin.main_admin()
+                search = True
+                break
                 # Файл админа
-                pass
         else:
-            print("Пользователь не найден,зарегистрируйтесь или попробуйте ещё раз...")
-            time.sleep(2)
-            main.main()
+            search = False
+    if (search == False):
+        print("Такой пользователь не найден, Зарегистрируйтесь или проверьте введенные данные и попробуйте ещё раз...")
+        time.sleep(2)
+        main.main()
 
 
 def get_user_login():

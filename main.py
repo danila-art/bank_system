@@ -6,7 +6,10 @@ import registration_user
 
 
 def main():
-    print("Добро пожаловать в нашу банковскую систему.")
+    hello = "| Добро пожаловать в нашу банковскую систему. |"
+    print("-"*len(hello))
+    print(f"{hello}")
+    print("-"*len(hello))
     arr_control = control_button()
     for element in arr_control:
         print("-"*len(element))

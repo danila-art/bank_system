@@ -1,4 +1,7 @@
 surname,name,patronomyk,seria,number,date_of_birth,login,password,personal_account,card,rang
-Сивов,Данила,Алексеевич,1220,852113,28.12.2000,danila-art,209156,s-22028066,[],user
+Сивов,Данила,Алексеевич,1220,852113,28.12.2000,danila-art,209156,s-22028066,[],admin
 Федянин,Максим,Павлович,1221,998562,01.02.2002,max221,123123,s-22025638,[],user
-Иванов,Иван,Иванович,1290,765422,21.04.1999,ivan-login,ivan-password,s-22029559,[],user
+Админов,Админ,Админович,9999,999999,99.99.9999,admin,admin,s-22022366,[],admin
+Иванов,Иван,Иванович,1219,862452,11.11.1978,ivan-login,ivan-password,s-22021830,[],user
+Сергеев,Сергей,Сергеевич,1218,652872,12.09.1989,sergeev-login,sergeev-password,s-22021014,[],user
+Петров,Александр,Николаевич,1222,782652,30.02.1988,petrov-log,petrov-password,s-22024071,[],user

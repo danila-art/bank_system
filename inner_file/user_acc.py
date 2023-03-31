@@ -1,4 +1,5 @@
 import module_csv
+import time
 
 
 class user_class:
@@ -38,7 +39,37 @@ class user_class:
             # Подключение к файлу карт и вывод всех карт по данным номерам в файле user.csv
             print("Карты есть (Доработать)")
 
+    def system_managment(self):
+        arr = [
+            "| 1 <-- Получить дебетовую карту |",
+            "| 2 <-- Получить кредитную карту |",
+            "| 3 <-- Получить кредит наличным |",
+            "| 0 <-- Вернуться в главное меню |"
+        ]
+        for el_arr in arr:
+            print("-"*len(el_arr))
+            print(el_arr)
+            print("-"*len(el_arr))
+            time.sleep(.5)
 
+        while True:
+            select_operation = input("Выберете что хотите сделать: ")
+            if (select_operation == ""):
+                print("Вы ничего не указали, повторите ещё раз...")
+            elif(select_operation == '1'):
+                add_debet_card()  # <- Функция добавления дебетовой карты
+                pass          
+            elif(select_operation == '2'):
+                add_credit_card() # <- Функция добавления кредитной карты
+                pass
+            elif(select_operation == '3'):
+                pass
+            elif(select_operation == '0'):
+                pass
+            else:
+                print("Вы ввели несуществующее значение, попробуйте ещё раз")
+
+# Главная функция управления ->
 def select_user(get_login, get_password):
     arr_users = module_csv.read_csv_user()
     create_arr_user = []
@@ -49,5 +80,4 @@ def select_user(get_login, get_password):
                 create_arr_user.append(value)
     user = user_class(create_arr_user)
     user.hello_user()
-
-
+    user.system_managment()

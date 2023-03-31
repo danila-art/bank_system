@@ -141,7 +141,6 @@ def get_personal_account():  # Функция добавления personal_acco
     arr_dict_users = module_csv.read_csv_user()
     for element in arr_dict_users:
         arr_del = str(element['personal_account']).split('s-2202')
-        print(arr_del)
         if(int(arr_del[1]) == personal_int):
             get_personal_account() #если найдено совпадение, перезапуск функции
         else:
