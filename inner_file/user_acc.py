@@ -1,5 +1,6 @@
 import module_csv
 import time
+import main
 
 
 class user_class:
@@ -56,20 +57,54 @@ class user_class:
             select_operation = input("Выберете что хотите сделать: ")
             if (select_operation == ""):
                 print("Вы ничего не указали, повторите ещё раз...")
-            elif(select_operation == '1'):
-                add_debet_card()  # <- Функция добавления дебетовой карты
-                pass          
-            elif(select_operation == '2'):
-                add_credit_card() # <- Функция добавления кредитной карты
+            elif (select_operation == '1'):
+                time.sleep(.5)
+                print("Формирую пакет ваших данных для оформления услуги -> ")
+                # Код формирования dict_user
+                dict_user = self.create_dict_user() # Данные для отправки 
+                time.sleep(1)
+                print(dict_user)
+                # <- Функция добавления дебетовой карты
                 pass
-            elif(select_operation == '3'):
+            elif (select_operation == '2'):
+                time.sleep(.5)
+                print("Формирую пакет ваших данных для оформления услуги -> ")
+                # Код формирования dict_user
+                dict_user = self.create_dict_user() # Данные для отправки
+                time.sleep(1)
+                print(dict_user)
+                # <- Функция добавления кредитной карты
                 pass
-            elif(select_operation == '0'):
+            elif (select_operation == '3'):
+                time.sleep(.5)
+                print("Формирую пакет ваших данных для оформления услуги -> ")
+                # Код формирования dict_user
+                dict_user = self.create_dict_user() # Данные для отправки
+                time.sleep(1)
+                print(dict_user)
+                # <- Функция выдачи кредитов
                 pass
+            elif (select_operation == '0'):
+                print("Возвращаюсь в стартовое меню...")
+                time.sleep(1)
+                main.main()
             else:
                 print("Вы ввели несуществующее значение, попробуйте ещё раз")
 
+    def create_dict_user(self):  # Функция формировани документов для отправки
+        dict_user = {
+            "surname": self.surname,
+            "name": self.name,
+            "patronomyk": self.patronomyk,
+            "pasport": str(self.seria)+"-"+str(self.number),
+            "date_of_birth": self.date_of_birth,
+            "personal_account": self.personal_account,
+            "card": self.card
+        }
+        return dict_user
 # Главная функция управления ->
+
+
 def select_user(get_login, get_password):
     arr_users = module_csv.read_csv_user()
     create_arr_user = []

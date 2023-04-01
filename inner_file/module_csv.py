@@ -11,17 +11,16 @@ def read_csv_user():
     return arr_dict_user
 
 
-def append_dict_user(dict_user):
-    # Функция данных из файла user.csv
+def append_dict_user(dict_user):  # Функция данных из файла user.csv
     with open("./csv/user.csv", 'a', encoding='utf-8', newline="") as file:
         append = csv.DictWriter(file, dict_user)
         append.writerow(dict_user)
 
 
-def write_new_users(arr_users):
+def write_new_users(arr_users):  # Функция перезаписи user.csv
     fieldNames = ["surname", "name", "patronomyk", "seria", "number",
                   "date_of_birth", "login", "password", "personal_account", "card", "rang"]
-    with open("./csv/user.csv", 'w', encoding='utf-8', newline="") as file:  # Функция перезаписи user.csv
+    with open("./csv/user.csv", 'w', encoding='utf-8', newline="") as file:
         write = csv.DictWriter(file, fieldnames=fieldNames)
         write.writeheader()
         for element in arr_users:
